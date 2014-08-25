@@ -1,0 +1,1 @@
+Esta semana lo que hicimos fue terminar la instalacion de todas las herramientas que vamos a usar para realizar el proyecto, ademas de eso tambien realizamos todo el entorno grafico de la aplicacion para la semana siguiente poder empezar a programar la parte logica.
