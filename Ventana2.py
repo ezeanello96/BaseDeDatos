@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Proyecto3.ui'
 #
-# Created: Mon Aug 11 11:20:19 2014
+# Created: Mon Aug 25 10:34:23 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,9 +26,9 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(484, 466)
+        Dialog.resize(485, 513)
         self.verticalLayoutWidget = QtGui.QWidget(Dialog)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 481, 461))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 481, 511))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setMargin(0)
@@ -51,6 +51,12 @@ class Ui_Dialog(object):
         self.lineEdit = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.verticalLayout.addWidget(self.lineEdit)
+        self.label_6 = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label_6.setObjectName(_fromUtf8("label_6"))
+        self.verticalLayout.addWidget(self.label_6)
+        self.txtb_name = QtGui.QLineEdit(self.verticalLayoutWidget)
+        self.txtb_name.setObjectName(_fromUtf8("txtb_name"))
+        self.verticalLayout.addWidget(self.txtb_name)
         self.label_5 = QtGui.QLabel(self.verticalLayoutWidget)
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.verticalLayout.addWidget(self.label_5)
@@ -75,6 +81,7 @@ class Ui_Dialog(object):
         self.label_2.setText(_translate("Dialog", "Ingrese el dia:", None))
         self.label_3.setText(_translate("Dialog", "Ingrese la hora:", None))
         self.label_4.setText(_translate("Dialog", "Ingrese la cantidad de horas:", None))
+        self.label_6.setText(_translate("Dialog", "Ingrese su nombre:", None))
         self.label_5.setText(_translate("Dialog", "Ingrese el tipo de cancha:", None))
         self.comboBox.setItemText(0, _translate("Dialog", "Futbol", None))
         self.comboBox.setItemText(1, _translate("Dialog", "Tenis", None))

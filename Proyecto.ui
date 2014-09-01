@@ -51,16 +51,6 @@
      <widget class="QTimeEdit" name="timeEdit"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Ingrese la cantidad de horas:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
-    <item>
      <widget class="QLabel" name="label_5">
       <property name="text">
        <string>Ingrese el tipo de cancha:</string>
