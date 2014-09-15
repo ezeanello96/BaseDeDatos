@@ -3,21 +3,21 @@
 
 import sqlite3
  
-class DataBase
+class DataBase:
     
     crear_tablas = '''CREATE TABLE IF NOT EXISTS Turnos(
 	id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 	nombre_cliente VARCHAR(30) NOT NULL,
-	fecha_hora TIMESTAMP NOT NULL,
+	fecha_hora VARCHAR(20) NOT NULL,
 	fecha_hora_reserva TIMESTAMP NOT NULL,
 	cant_horas INTEGER NOT NULL,
 	tipo_cancha VARCHAR(20) NOT NULL
         )'''
     
     def __init__(self):
-        self.conn = None
+        self.conn = sqlite3.connect('ElClub')
         self.cursor = self.conn.cursor()
-        self.cursor.execute(crear_tablas)
+        self.cursor.execute(self.crear_tablas)
     
     def __exit__(self):
         self.close()
@@ -27,20 +27,21 @@ class DataBase
         self.conn = sqlite3.connect('ElClub')
         self.cursor = self.conn.cursor()
     
-    def agregar_turno(self, nombre_cliente, fecha_hora_reserva, fecha_hora, cant_horas, tipo_cancha):
+    def agregar_turno(self, nombre_cliente, fecha_hora, cant_horas, tipo_cancha):
 	"""Inserta los datos en la base de datos """
-	self.cursor.execute("INSERT INTO Turnos(nombre_cliente, fecha_hora_reserva, fecha_hora, cant_horas, tipo_cancha) VALUES("+nombre_cliente+", datetime('now', 'localtime'), "+fecha_hora+", "+cant_horas+", "+tipo_cancha+")")
+	params = (nombre_cliente, fecha_hora, cant_horas, tipo_cancha)
+	self.cursor.execute("INSERT INTO Turnos(nombre_cliente, fecha_hora_reserva, fecha_hora, cant_horas, tipo_cancha) VALUES(?, datetime('now', 'localtime'), ?, ?, ?)", params)
     
     def mostrar_turnos(self, fecha_hora, tipo_cancha):
         """Muestra todos los turnos en la fecha y hora"""
-        q = self.cursor.execute("SELECT nombre_cliente, cant_horas, tipo_cancha FROM Turnos WHERE fecha_hora="+fecha_hora+"AND tipo_cancha="+tipo_cancha)
+        q = self.cursor.execute("SELECT nombre_cliente, cant_horas, fecha_hora_reserva FROM Turnos WHERE fecha_hora="+fecha_hora+"AND tipo_cancha="+tipo_cancha)
         return q.fetchall()
     
-    def get_table_items(self, table):
+    def get_all(self):
         """Retorna las filas"""
-        q = self.cursor.execute("SELECT * FROM " + table)
-        
-        return q.fetchall()
+        q = self.cursor.execute("SELECT * FROM Turnos")
+        algo = q.fetchall()
+        print algo
     
     def commit(self):
         """Guardar cambios"""
